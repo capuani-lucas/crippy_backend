@@ -1,12 +1,22 @@
 package com.capuani.crippy.test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TestService {
 
-    public Test[] getTest () {
+    private final TestRepository testRepository;
 
-        return new Test[] {new Test(11, "test", 14), new Test(11, "test", 14)};
+    @Autowired
+    public TestService(TestRepository testRepository) {
+        this.testRepository = testRepository;
+    }
+
+    public List<Test> getTest () {
+
+        return testRepository.findAll();
 
     }
 

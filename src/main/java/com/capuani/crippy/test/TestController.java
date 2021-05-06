@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "v1/test")
 public class TestController {
@@ -16,10 +18,12 @@ public class TestController {
 
 
     @GetMapping
-    public Test[] getTest () {
+    public List<Test> getTest () {
 
         return testService.getTest();
 
     }
+
+
 
 }

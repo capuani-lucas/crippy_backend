@@ -1,6 +1,20 @@
 package com.capuani.crippy.test;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Test {
+    @Id
+    @SequenceGenerator(
+            name = "test_sequence",
+            allocationSize = 1,
+            sequenceName = "test_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "test_sequence"
+    )
 
     private long id;
     private String test;
@@ -11,6 +25,10 @@ public class Test {
         this.id = id;
         this.test = test;
         this.age = age;
+
+    }
+
+    public Test() {
 
     }
 
